@@ -1,6 +1,6 @@
 #include <stdio.h>
 /*
-Convert the following temperatures from C to F
+Convert the following temperatures from F to C
 1    −17
 20   −6
 40   4
@@ -17,18 +17,30 @@ Convert the following temperatures from C to F
 260  126
 */
 
-// Converts from Celcous to Farenheit
-float convert(float temp);
+float farenheit_to_celsius(float fahrenheit_temperature);
+float celsius_to_farenheit(float celsius_temperature);
 
 int main() {
   int min, max, step;
   min = 0;
   max = 300;
+  printf("Farenheit to Celsius converter\n");
   for (int i = min; i < 300; i = i + 20) {
-    float result = convert((float)i);
-    printf("%d -> %.1f\n", i, result);
+    float result = farenheit_to_celsius((float)i);
+    printf("%3.0f \t %6.1f\n", (float)i, result);
+  }
+
+  printf("Celsius to Farenheit converter\n");
+  for (int i = min; i < 300; i = i + 20) {
+    float result = celsius_to_farenheit((float)i);
+    printf("%3.0f \t %6.1f\n", (float)i, result);
   }
   return 0;
 }
 
-float convert(float temp) { return (5.0 * (temp - 32)) / 9; }
+float farenheit_to_celsius(float fahrenehit_temperature) {
+  return (5.0 * (fahrenehit_temperature - 32)) / 9.0;
+}
+float celsius_to_farenheit(float celsius_temperature) {
+  return (9.0 / 5.0) * celsius_temperature + 32.0;
+}
