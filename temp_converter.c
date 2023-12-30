@@ -20,18 +20,19 @@ Convert the following temperatures from F to C
 float farenheit_to_celsius(float fahrenheit_temperature);
 float celsius_to_farenheit(float celsius_temperature);
 
+#define MIN 0
+#define MAX 300
+#define STEP 20
+
 int main() {
-  int min, max, step;
-  min = 0;
-  max = 300;
   printf("Farenheit to Celsius converter\n");
-  for (int i = min; i < 300; i = i + 20) {
+  for (int i = MIN; i < MAX; i = i + STEP) {
     float result = farenheit_to_celsius((float)i);
     printf("%3.0f \t %6.1f\n", (float)i, result);
   }
 
   printf("Celsius to Farenheit converter\n");
-  for (int i = min; i < 300; i = i + 20) {
+  for (int i = MIN; i < MAX; i = i + STEP) {
     float result = celsius_to_farenheit((float)i);
     printf("%3.0f \t %6.1f\n", (float)i, result);
   }
