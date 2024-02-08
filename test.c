@@ -1,10 +1,23 @@
-#include <stdio.h>
+#include <stdlib.h>
+#include "utils.h"
 
-int main(){
-    char str[100];
-    str[0] = 'H';
-    str[1] = 'i';
-    str[2] = '\0';
+void partition(int array[5], int size, int startIndex, int endIndex) {
+  int outSize = endIndex - startIndex;
+  if (outSize == 0) {
+    return;
+  }
+  int out[outSize];
+  int j = startIndex;
+  for (int i = 0; i < outSize; i++) {
+    out[i] = array[j];
+    j++;
+  }
+  print_array(out, outSize);
+}
 
-    printf("%s", str);
+int main() {
+  int array[5] = {1, 2, 3, 4, 5};
+  partition(array, 5, 0, 3);
+  partition(array, 5, 3, 4);
+  return EXIT_SUCCESS;
 }
